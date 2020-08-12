@@ -9,8 +9,7 @@ import { Product } from 'src/app/models/product';
 })
 export class CartComponent implements OnInit {
 
-  cartItems = [
-  ]
+  cartItems = []
 
   cartTotal = 0; 
   constructor(private msg: MessengerService) { }
