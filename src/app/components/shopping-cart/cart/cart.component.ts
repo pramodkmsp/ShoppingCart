@@ -9,11 +9,7 @@ import { Product } from 'src/app/models/product';
 })
 export class CartComponent implements OnInit {
 
-  cartItems = [ 
-    // {id: 1, productId: 1, productName: 'Test1', qty: 3, price: 200},
-    // {id: 2, productId: 2, productName: 'Test2', qty: 4, price: 150},
-    // {id: 3, productId: 3, productName: 'Test3', qty: 2, price: 250},
-    // {id: 4, productId: 4, productName: 'Test4', qty: 1, price: 100},
+  cartItems = [
   ]
 
   cartTotal = 0; 
