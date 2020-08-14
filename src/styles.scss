@@ -24,3 +24,19 @@
 .product-btn {
     font-size: smaller;
 }
+
+.fa-heart {
+    color: palevioletred;
+    cursor: pointer;
+}
+
+.guest-form-card {
+    text-transform: uppercase;
+    color: #3444d8;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.btn-primary.disabled, .btn-primary:disabled {
+    cursor: no-drop;
+}

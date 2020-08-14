@@ -1,0 +1,84 @@
+<div class="card col-md-4 offset-md-4 p-0">
+    <div class="guest-form-card card-header">
+      Register Here
+    </div>
+    <div class="card-body">
+      <form [formGroup]="registerForm" (ngSubmit)="register()">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input 
+              type="text" 
+              class="form-control" 
+              name="name"
+              id="name"
+              formControlName="name"
+              [ngClass]="{'is-invalid': registerForm.get('name').touched && registerForm.get('name').invalid}"
+              placeholder="Enter name"
+              autocomplete="off">
+          <span class="invalid-feedback">Name can't be blank</span>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input 
+                type="text" 
+                class="form-control" 
+                name="email"
+                id="email"
+                formControlName="email"
+                [ngClass]="{'is-invalid': registerForm.get('email').touched && registerForm.get('email').invalid}"
+                placeholder="Enter email"
+                autocomplete="off">
+            <span *ngIf="registerForm.get('email').hasError('required')" class="invalid-feedback">Email can't be blank</span>
+            <span *ngIf="registerForm.get('email').hasError('pattern')" class="invalid-feedback">Email must be valid</span>
+        </div>
+
+        <div class="form-group">
+            <label for="name">Username:</label>
+            <input 
+                type="text" 
+                class="form-control" 
+                name="username"
+                id="username"
+                formControlName="username"
+                [ngClass]="{'is-invalid': registerForm.get('username').touched && registerForm.get('username').invalid}"
+                placeholder="Enter username"
+                autocomplete="off">
+            <span class="invalid-feedback">Username can't be blank</span>
+        </div>
+  
+        <div class="form-group">
+          <label for="">Password:</label>
+          <input 
+              type="password" 
+              class="form-control" 
+              name="password" 
+              id="password"
+              formControlName="password"
+              [ngClass]="{'is-invalid': registerForm.get('password').touched && registerForm.get('password').invalid}"
+              placeholder="Enter password"
+              autocomplete="off">
+              <span class="invalid-feedback" *ngIf="registerForm.get('password').hasError('required')">Password can't be blank</span>
+              <span class="invalid-feedback" *ngIf="registerForm.get('password').hasError('symbol')">Password should contain @ symbol</span>
+              <span class="invalid-feedback" *ngIf="registerForm.get('password').hasError('minlength')">Password at least minmum 4 character length</span>
+        </div>
+
+        <div class="form-group">
+            <label for="">Confirm Password:</label>
+            <input 
+                type="password" 
+                class="form-control" 
+                name="confirmPassword" 
+                id="confirmPassword"
+                formControlName="confirmPassword"
+                [ngClass]="{'is-invalid': registerForm.get('confirmPassword').touched && registerForm.get('confirmPassword').invalid}"
+                placeholder="Enter confirm password"
+                autocomplete="off">
+            <span class="invalid-feedback">Confirm password must match</span>
+        </div>
+  
+        <button type="submit" class="btn btn-primary btn-block" [disabled]="registerForm.invalid">Register</button>
+      </form>
+    </div>
+  </div>
+  
