@@ -6,6 +6,7 @@
   </div>
 
   <div class="card-body">
+    <p class="card-text"><span style="font-weight: 500;">Name:</span> {{productItems.name | titlecase }}</p>
     <p>
         <strong>{{productItems.price | currency: 'INR'}}</strong>
         <i *ngIf="addedToWishlist" class="fas fa-heart float-right" (click)="handleRemoveFromWishlist()"></i>
