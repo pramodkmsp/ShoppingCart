@@ -10,6 +10,7 @@ import { WishlistService } from 'src/app/services/wishlist.service';
 })
 export class ProductListComponent implements OnInit {
   productList: Product[] = [];
+  filteredProducts: Product[] = [];
   wishlist: number[] = [];
 
   constructor(private productService: ProductService,
@@ -19,12 +20,27 @@ export class ProductListComponent implements OnInit {
   ngOnInit(): void {
     this.loadProducts();
     this.loadWishlist();
+    this.productService.searchText.subscribe(text => {
+      console.log(text);
+      if(text) {
+        this.filteredProducts = this.productList.filter(product => {
+          console.log(product.name.toLowerCase().includes(text.toLowerCase()));
+          
+          if(product.name.toLowerCase().includes(text.toLowerCase())) {
+            return product;
+          };
+        })
+      } else {
+        this.filteredProducts = this.productList;
+      }
+    })
   }
 
   loadProducts() {
     this.productService.getProducts().subscribe((products) => {
       console.log(products);
       this.productList = products;
+      this.filteredProducts = this.productList;
     });
   }
 
